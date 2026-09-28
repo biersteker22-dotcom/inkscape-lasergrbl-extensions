@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Optimaliseer snijvolgorde voor LaserGRBL</name>
+  <id>nl.codex.lasergrbl.route_optimizer</id>
+  <param name="scope" type="optiongroup" appearance="combo" gui-text="Welke paden:">
+    <option value="document">Alle zichtbare paden (kleuren apart)</option>
+    <option value="selection">Alleen geselecteerde paden</option>
+  </param>
+  <param name="start" type="optiongroup" appearance="combo" gui-text="Start bij:">
+    <option value="bottom_left">Linksonder</option>
+    <option value="top_left">Linksboven</option>
+    <option value="top_right">Rechtsboven</option>
+    <option value="bottom_right">Rechtsonder</option>
+  </param>
+  <param name="inside-first" type="bool" gui-text="Binnencontouren eerst">true</param>
+  <param name="reverse-open" type="bool" gui-text="Open lijnen indien gunstig omkeren">true</param>
+  <param name="combine" type="bool" gui-text="Per kleur combineren voor betrouwbare LaserGRBL-volgorde">true</param>
+  <label appearance="wrapped">Blauw en rood worden onafhankelijk geoptimaliseerd. Sla uw ontwerp daarna op onder een nieuwe naam en controleer de voorbeeldweergave in LaserGRBL.</label>
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="LaserGRBL"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">lasergrbl_route_optimizer.py</command>
+  </script>
+</inkscape-extension>

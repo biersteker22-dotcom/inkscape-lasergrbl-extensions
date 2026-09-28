@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <name>Brugjes in rode buitencontouren</name>
+  <id>nl.codex.lasergrbl.brugjes</id>
+  <param name="gap" type="float" min="0.1" max="5.0" precision="2" gui-text="Breedte per brugje (mm):">0.75</param>
+  <param name="count" type="int" min="1" max="12" gui-text="Aantal brugjes per contour:">2</param>
+  <param name="scope" type="optiongroup" appearance="combo" gui-text="Welke rode paden:">
+    <option value="auto">Selectie indien aanwezig, anders alle rode paden</option>
+    <option value="document">Alle rode paden in het document</option>
+    <option value="selection">Alleen geselecteerde rode paden</option>
+  </param>
+  <label>De brugjes worden gelijkmatig over iedere gesloten rode contour verdeeld. Blauwe lijnen worden niet gewijzigd.</label>
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu name="LaserGRBL"/>
+    </effects-menu>
+  </effect>
+  <script>
+    <command location="inx" interpreter="python">lasergrbl_brugjes.py</command>
+  </script>
+</inkscape-extension>
